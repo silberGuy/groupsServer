@@ -32,7 +32,7 @@ export default {
     MemberRowEdit
   },
   async mounted() {
-    this.members = await fetch(`http://${config.serverName}/members`).then(res => res.json());
+    this.members = await fetch(`/members`).then(res => res.json());
   },
   data() {
     return {
@@ -43,7 +43,7 @@ export default {
   	saveToServer() {
   		const newData = this.$refs.members.map(({memberId, name, gender}) => ({id: +memberId, name, gender}));
   		console.log(newData[0]);
-  		fetch(`http://${config.serverName}/members`, {
+  		fetch(`/members`, {
   			method: "POST",
   			headers: { "content-type": "application/json" },
   			body: JSON.stringify(newData)

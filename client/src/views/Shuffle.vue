@@ -45,7 +45,7 @@ export default {
   },
   async mounted() {
     console.log(123);
-    this.members = await fetch(`http://${config.serverName}/members`).then(res => res.json());
+    this.members = await fetch(`/members`).then(res => res.json());
   },
   data() {
     return {
